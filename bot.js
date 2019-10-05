@@ -208,9 +208,9 @@ client.on('message', message => {
 
 client.on('message', message => { 
   if(message.content.startsWith(prefix + "warn")) {
-    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(`**You Don't Have Permissions**`);
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(`You Don't Have Permission`);
      let user = message.mentions.users.first();
-         if(!user) return message.reply('**Mention The User Please !**').then(message => message.delete(5000);;
+         if(!user) return message.reply('**Mention The User Please !**').then(message => message.delete(4500));;
      let reason = message.content.split(' ').slice(2);
 
          if(message.guild.member(user).hasPermission("ADMINISTRATOR")) return message.reply(`**You Can't Warn This User**`).then(message => message.delete(5000));;
