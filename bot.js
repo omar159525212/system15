@@ -206,27 +206,24 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => { 
+  if(message.content.startsWith(prefix + "warn")) {
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(`**You Don't Have Permissions**`);
+     let user = message.mentions.users.first();
+         if(!user) return message.reply('**Mention The User Please !**').then(message => message.delete(5000);;
+     let reason = message.content.split(' ').slice(2);
 
-client.on('message', message => {let prefix = "!";
-if(message.content.startsWith(prefix + "sug")) {
-      message.delete()
+         if(message.guild.member(user).hasPermission("ADMINISTRATOR")) return message.reply(`**You Can't Warn This User**`).then(message => message.delete(5000));;
+     let embed = new Discord.RichEmbed()
+     .setTitle(':warning: **You Were warned!')
+     .addField(reason)
+     .setFooter(`${message.guild.iconURL} ${message.guild.name} | ${message.createdAt}`);
+     user.sendEmbed(embed)
+     message.channel.send(`This User Has Ben Warned!`);
 
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  }
 
-  var suggestMessage = args.slice(1).join(" ")
-  if(!suggestMessage) return message.reply("الرجاء وضع اقتراح")
-  let suggestsEMBED = new Discord.RichEmbed()
-   .setColor('#0028db')
-   .setTitle(" !أقتراح جديد ")
-   .setDescription(`**${suggestMessage}**`)
-   .setFooter(` المقترح : ${message.author.tag}`)
-  
-       let suggests = message.guild.channels.find(ch => ch.name === "الاقتراحات");
-                   if (!suggests) return message.reply("يرجى صنع روم بأسم : الاقتراحات")
-               suggests.send(suggestsEMBED);
-}
-})
-
+});
 
 
 
