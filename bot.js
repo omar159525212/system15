@@ -208,19 +208,12 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {   
-     if (message.content === "ping") {
-      const embed = new Discord.RichEmbed()
- 
-  .setColor("RANDOM")
-  .addField('``سرعة أتصال الــبوت`` ' , `${Date.now() - message.createdTimestamp}` + ' ms`')
- 
-
-  message.channel.sendEmbed(embed);
-    }
+-----------------------------
+client.on('message', luxy => {
+if(luxy.content === 'هلا') {
+luxy.reply('هلا بيك نورت');
+}
 });
-
-
 
 
 
