@@ -208,31 +208,17 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-    if (message.content.includes('discord.gg')){
-                        if(!message.channel.guild) return message.reply ('')
-                    if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
-       message.channel.send('kick <@' + message.author.id + '>')
-       message.delete() 
-       } /////////////// Galal , ALPHA CODES
-    } /////////////// Galal , ALPHA CODES
-          if (message.content.startsWith("kick")) {
-             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
-             var member= message.mentions.members.first();
-             member.kick().then((member) => {
-                 message.channel.sendMessage("", {embed: {
-                 author: {  /////////////// Galal , ALPHA CODES
-                 },  /////////////// Galal , ALPHA CODES
-                 title: 'بسبب النشر ' + member.displayName + ' تم حظر', 
-                 color: 490101,
-                 }
-               });
-           }  /////////////// Galal , ALPHA CODES
-         ) 
-       }  /////////////// Galal , ALPHA CODES
-   });  /////////////// Galal , ALPHA CODES
+client.on('message', message => {   
+     if (message.content === "ping") {
+      const embed = new Discord.RichEmbed()
+ 
+  .setColor("RANDOM")
+  .addField('``سرعة أتصال الــبوت`` ' , `${Date.now() - message.createdTimestamp}` + ' ms`')
+ 
 
-
+  message.channel.sendEmbed(embed);
+    }
+});
 
 
 
