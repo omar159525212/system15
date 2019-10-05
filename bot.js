@@ -180,6 +180,9 @@ if (message.author.bot) return;
  // By Alpha Codes - AboKhalil 26/7/2019
 });
 
+
+
+
 client.on('message', message => {
 if (message.author.bot) return;
   let args = message.content.split(" ");
