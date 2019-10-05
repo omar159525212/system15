@@ -139,7 +139,46 @@ client.on('message', message => {
         }
     });
 
-
+client.on('message', message => {
+if (message.author.bot) return;
+  let args = message.content.split(" ");
+      // By Alpha Codes - AboKhalil 26/7/2019
+  let command = args[0];
+ 
+  let user = message.mentions.users.first();
+   
+  let reasonkick = message.content.split(" ").slice(2).join(" ");
+ 
+  if (command == prefix + "kick") {
+ 
+    if(!message.channel.guild){
+    message.channel.send("**لا يمكن استعمال هذا الأمر في الخاص**");
+}
+    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) {
+        message.channel.send("**يجب ان يكون لديك خاصية `KICK_MEMBERS`**");
+    }
+    if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) {
+        message.channel.send("**البوت لا يمتلك خاصية `KICK_MEMBERS`**");
+    }
+    if (!user) {
+        message.channel.send("**يجب عليك إختيار الشخص المراد طرده**");
+    }else if (!reasonkick) {
+        message.channel.send("**يجب عليك إدراج سبب الحظر**");
+    } else if (message.guild.member(user).hasPermission("KICK_MEMBERS")){
+    message.channel.send("**لا يمكن طرد هذا الشخص , فهو من الإدارة**");
+    } else {
+ 
+ 
+    message.guild.member(user).kick()
+    message.channel.send("**The Member Was Kicked **" + user.tag + " **By** : " + message.author.tag);
+    message.channel.send("**Reason : __" + reasonkick + "__**");
+   
+    user.send("**You are Kicked By** : " + message.author.tag);
+    user.send("**Reason : __" + reasonkick + "__**");
+    }
+ }
+ // By Alpha Codes - AboKhalil 26/7/2019
+});
 
 
 
