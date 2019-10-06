@@ -24,7 +24,7 @@ client.on('message', message => {
         if (message.author.bot) return
         if (!message.guild) return message.reply('**:x: This Commands Just In Server**').then(v => {v.react('❌')})
         var args =  message.content.split(' ').slice(1).join(' ')
-        if (!args) return message.reply(' (sugt)اكتب اقتراحك بعد ').then(c => {c.delete(5000)})
+        if (!args) return message.reply(' (sug)اكتب اقتراحك بعد ').then(c => {c.delete(5000)})
         let Room = message.guild.channels.find(`name`, "suggestions")
         if (!Room) return message.channel.send(" (suggestions)لا يوجد شات.").then(d => d.react('❌'))
         let embed = new Discord.RichEmbed()
