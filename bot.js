@@ -141,8 +141,8 @@ client.on('message' , message => {
 
 
 client.on("message", message => {
-	var prefix = "*";
- if (message.content === "*help") {
+	var prefix = "!";
+ if (message.content === "!help") {
   const embed = new Discord.RichEmbed()  
       .setColor("#8325c0") 
       .setDescription(`
