@@ -1,4 +1,26 @@
- client.on('message', message => {
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://3bkersyst.glitch.me/`);
+}, 280000);
+
+const Discord = require('discord.js');  //WESO#0001
+const client = new Discord.Client();  //WESO#0001
+const moment = require('moment');
+const zalgo = require('zalgolize');  //WESO#0001
+const math = require('math-expression-evaluator');   //WESO#0001 
+const figlet = require('figlet');   //WESO#0001
+const fs = require('fs');  //WESO#0001
+const ms = require('ms');  //WESO#0001
+const prefix = '!'
+
+
+client.on('message', message => {
   if(!message.channel.guild) return;
 if(message.content.startsWith('!bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
@@ -115,3 +137,8 @@ client.on('message' , message => {
             message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
         }
     });
+
+
+
+
+client.login(process.env.BOT_TOKEN);
