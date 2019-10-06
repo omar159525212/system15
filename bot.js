@@ -147,23 +147,17 @@ client.on("message", message => {
       .setColor("#8325c0") 
       .setDescription(`
 	  
-	       Help Commands: 
+<<<<<<<<<<>>>>>>>>>>
 
 			 
-${prefix}public ⥨ الاوامر العامة
+${prefix}bc     ⥨ برودكاست للكل
 
-${prefix}admin ⥨ اوامر الادارة
+${prefix}rolebc ⥨ برودكاست لرتبةمعينة
 			 
-${prefix}games ⥨ اوامر الالعاب
+${prefix}bk     ⥨ برودكاست بامبد او بدون
 
-${prefix}music ⥨ اوامر الموسيقى
-
-Other Commands:
-
-
-${prefix}invite ⥨ لدعوة البوت الى سيرفرك
-
-${prefix}support ⥨ لدخول سيرفر الدعم
+ملحوظة: برودكاست لرتبة اكتب بعد الامر رتبة و رسالة
+<<<<<<<<<<>>>>>>>>>>
 
 
 	  `)
